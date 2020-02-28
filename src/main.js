@@ -13,7 +13,7 @@ import {store} from './store'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
-axios.defaults.baseURL = 'http://192.168.0.165:8088'
+axios.defaults.baseURL = 'http://116.62.15.89:5775'
 
 // eslint-disable-next-line no-new
 new Vue({

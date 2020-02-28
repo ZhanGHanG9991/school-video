@@ -6,15 +6,19 @@
         <span class="welcome_span">欢迎登录</span>
       </div>
       <user-login/>
+<!--      <camera-login/>-->
     </el-card>
   </div>
 </template>
 <script>
 import UserLogin from './UserLogin'
-
+import CameraLogin from './CameraLogin'
 export default {
   name: 'EndLogin',
-  components: {UserLogin}
+  components: {
+    'user-login': UserLogin,
+    'camera-login': CameraLogin
+  }
 }
 </script>
 

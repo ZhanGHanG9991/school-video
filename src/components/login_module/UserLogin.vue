@@ -1,7 +1,7 @@
 <template>
   <el-form class="inputLogin">
       <el-input
-        v-model="username"
+        v-model="account"
         placeholder="请输入账号"
         auto-complete="new-password"
         size="large"
@@ -30,24 +30,24 @@ export default {
   name: 'UserLogin',
   data () {
     return {
-      username: '',
+      account: '',
       password: ''
     }
   },
   methods: {
     login () {
-      if (this.username === '') {
+      if (this.account === '') {
         functions.showErrorMessage('请输入工号')
       } else {
         if (this.password === '') {
           functions.showErrorMessage('请输入密码')
         } else {
           const params = new URLSearchParams()
-          params.append('username', this.username)
+          params.append('account', this.account)
           params.append('password', this.password)
           this.axios.post('/user/login', params)
             .then((response) => {
-              if (response.data.success) {
+              if (response.data.code === '0000') {
                 functions.showSuccessMessage('登录成功')
                 this.$router.push({name: 'Main'})
               } else {
